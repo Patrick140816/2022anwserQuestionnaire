@@ -20,7 +20,7 @@ import javax.crypto.spec.SecretKeySpec;
  * @program: website
  * @author: 王新春
  * @create: 2018-06-21 16:33
- * @description:  Java加密解密工具.3DES SHA1 MD5 BASE64编码 AES加密 Title: EnDecryptUtil.java
+ * @description: Java加密解密工具.3DES SHA1 MD5 BASE64编码 AES加密 Title: EnDecryptUtil.java
  **/
 
 public class EnDecryptUtil {
@@ -44,15 +44,14 @@ public class EnDecryptUtil {
 //      System.out.println("AES 加密 ： " + encryptBitAES(arr1, "arr1"));
 //      System.out.println("AES 解密 ： " + decryptBitAES(encryptBitAES(arr1, "arr1"), "arr1"));
         String password = EnDecryptUtil.encodeBASE64(EnDecryptUtil.d3esEncode("111111"));
-        System.out.println(password);
+//        System.out.println(password);
 
     }
 
     /**
      * SHA1加密Bit数据
      *
-     * @param source
-     *            byte数组
+     * @param source byte数组
      * @return 加密后的byte数组
      */
     public static byte[] SHA1Bit(byte[] source) {
@@ -69,8 +68,7 @@ public class EnDecryptUtil {
     /**
      * SHA1加密字符串数据
      *
-     * @param source
-     *            要加密的字符串
+     * @param source 要加密的字符串
      * @return 加密后的字符串
      */
     public static String SHA1(String source) {
@@ -80,8 +78,7 @@ public class EnDecryptUtil {
     /**
      * MD5加密Bit数据
      *
-     * @param source
-     *            byte数组
+     * @param source byte数组
      * @return 加密后的byte数组
      */
     public static byte[] MD5Bit(byte[] source) {
@@ -100,8 +97,7 @@ public class EnDecryptUtil {
     /**
      * MD5加密字符串,32位长
      *
-     * @param source
-     *            要加密的内容
+     * @param source 要加密的内容
      * @return 加密后的内容
      */
     public static String MD5(String source) {
@@ -111,8 +107,7 @@ public class EnDecryptUtil {
     /**
      * BASE64编码
      *
-     * @param source
-     *            要编码的字符串
+     * @param source 要编码的字符串
      * @return 编码过的字符串
      */
     public static String encodeBASE64(String source) {
@@ -156,8 +151,7 @@ public class EnDecryptUtil {
     /**
      * BASE64解码
      *
-     * @param encodeSource
-     *            编码过的字符串
+     * @param encodeSource 编码过的字符串
      * @return 编码前的字符串
      */
     public static String decodeBASE64(String encodeSource) {
@@ -202,10 +196,8 @@ public class EnDecryptUtil {
     /**
      * AES加密
      *
-     * @param content
-     *            待加密的内容
-     * @param password
-     *            加密密码
+     * @param content  待加密的内容
+     * @param password 加密密码
      * @return
      */
     public static byte[] encryptBitAES(byte[] content, String password) {
@@ -223,10 +215,8 @@ public class EnDecryptUtil {
     /**
      * AES解密
      *
-     * @param content
-     *            待解密内容
-     * @param password
-     *            解密密钥
+     * @param content  待解密内容
+     * @param password 解密密钥
      * @return
      */
     public static byte[] decryptBitAES(byte[] content, String password) {
@@ -244,10 +234,8 @@ public class EnDecryptUtil {
     /**
      * AES字符串加密
      *
-     * @param content
-     *            待加密的内容
-     * @param password
-     *            加密密码
+     * @param content  待加密的内容
+     * @param password 加密密码
      * @return
      */
     public static String encryptAES(String content, String password) {
@@ -257,10 +245,8 @@ public class EnDecryptUtil {
     /**
      * AES字符串解密
      *
-     * @param content
-     *            待解密内容
-     * @param password
-     *            解密密钥
+     * @param content  待解密内容
+     * @param password 解密密钥
      * @return
      */
     public static String decryptAES(String content, String password) {
@@ -270,8 +256,7 @@ public class EnDecryptUtil {
     /**
      * 从指定字符串生成密钥
      *
-     * @param password
-     *            构成该秘钥的字符串
+     * @param password 构成该秘钥的字符串
      * @return 生成的密钥
      * @throws NoSuchAlgorithmException
      */
@@ -291,8 +276,7 @@ public class EnDecryptUtil {
      * 将byte数组转换为表示16进制值的字符串. 如：byte[]{8,18}转换为：0812 和 byte[]
      * hexStr2Bytes(String strIn) 互为可逆的转换过程.
      *
-     * @param bytes
-     *            需要转换的byte数组
+     * @param bytes 需要转换的byte数组
      * @return 转换后的字符串
      */
     public static String byte2HexStr(byte[] bytes) {
@@ -339,8 +323,7 @@ public class EnDecryptUtil {
     /**
      * 3DES加密
      *
-     * @param plainText
-     *            普通文本
+     * @param plainText 普通文本
      * @return
      * @throws Exception
      */
@@ -366,8 +349,7 @@ public class EnDecryptUtil {
     /**
      * 3DES解密
      *
-     * @param encryptText
-     *            加密文本
+     * @param encryptText 加密文本
      * @return
      * @throws Exception
      */

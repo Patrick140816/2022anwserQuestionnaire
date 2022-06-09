@@ -1,0 +1,120 @@
+2022-06-04 20:22:09.947 [http-nio-8085-exec-9] DEBUG c.a.q.d.U.selectAllByName -==>  Preparing: select id, username, password, status from user_info where username = ? and status = "1"
+2022-06-04 20:22:09.947 [http-nio-8085-exec-9] DEBUG c.a.q.d.U.selectAllByName -==>  Preparing: select id, username, password, status from user_info where username = ? and status = "1"
+2022-06-04 20:22:09.967 [http-nio-8085-exec-9] DEBUG c.a.q.d.U.selectAllByName -==> Parameters: admin(String)
+2022-06-04 20:22:09.967 [http-nio-8085-exec-9] DEBUG c.a.q.d.U.selectAllByName -==> Parameters: admin(String)
+2022-06-04 20:22:09.994 [http-nio-8085-exec-9] DEBUG c.a.q.d.U.selectAllByName -<==      Total: 1
+2022-06-04 20:22:09.994 [http-nio-8085-exec-9] DEBUG c.a.q.d.U.selectAllByName -<==      Total: 1
+2022-06-04 20:22:10.162 [http-nio-8085-exec-4] DEBUG c.a.q.d.P.queryProjectList -==>  Preparing: select id,project_name as projectName,project_content as projectContent,creation_date as createDate FROM project_info WHERE 1 = 1 AND created_by = ? ORDER BY creation_date DESC
+2022-06-04 20:22:10.162 [http-nio-8085-exec-4] DEBUG c.a.q.d.P.queryProjectList -==>  Preparing: select id,project_name as projectName,project_content as projectContent,creation_date as createDate FROM project_info WHERE 1 = 1 AND created_by = ? ORDER BY creation_date DESC
+2022-06-04 20:22:10.163 [http-nio-8085-exec-4] DEBUG c.a.q.d.P.queryProjectList -==> Parameters: admin(String)
+2022-06-04 20:22:10.163 [http-nio-8085-exec-4] DEBUG c.a.q.d.P.queryProjectList -==> Parameters: admin(String)
+2022-06-04 20:22:10.179 [http-nio-8085-exec-4] DEBUG c.a.q.d.P.queryProjectList -<==      Total: 2
+2022-06-04 20:22:10.179 [http-nio-8085-exec-4] DEBUG c.a.q.d.P.queryProjectList -<==      Total: 2
+2022-06-04 20:23:19.314 [http-nio-8085-exec-10] DEBUG c.a.q.d.U.selectAllByName -==>  Preparing: select id, username, password, status from user_info where username = ? and status = "1"
+2022-06-04 20:23:19.314 [http-nio-8085-exec-10] DEBUG c.a.q.d.U.selectAllByName -==>  Preparing: select id, username, password, status from user_info where username = ? and status = "1"
+2022-06-04 20:23:19.314 [http-nio-8085-exec-10] DEBUG c.a.q.d.U.selectAllByName -==> Parameters: Alpha(String)
+2022-06-04 20:23:19.314 [http-nio-8085-exec-10] DEBUG c.a.q.d.U.selectAllByName -==> Parameters: Alpha(String)
+2022-06-04 20:23:19.315 [http-nio-8085-exec-10] DEBUG c.a.q.d.U.selectAllByName -<==      Total: 0
+2022-06-04 20:23:19.315 [http-nio-8085-exec-10] DEBUG c.a.q.d.U.selectAllByName -<==      Total: 0
+2022-06-04 21:11:19.655 [http-nio-8085-exec-3] DEBUG c.a.q.d.U.selectAllByName -==>  Preparing: select id, username, password, status from user_info where username = ? and status = "1"
+2022-06-04 21:11:19.655 [http-nio-8085-exec-3] DEBUG c.a.q.d.U.selectAllByName -==>  Preparing: select id, username, password, status from user_info where username = ? and status = "1"
+2022-06-04 21:11:19.676 [http-nio-8085-exec-3] DEBUG c.a.q.d.U.selectAllByName -==> Parameters: admin(String)
+2022-06-04 21:11:19.676 [http-nio-8085-exec-3] DEBUG c.a.q.d.U.selectAllByName -==> Parameters: admin(String)
+2022-06-04 21:11:19.690 [http-nio-8085-exec-3] DEBUG c.a.q.d.U.selectAllByName -<==      Total: 1
+2022-06-04 21:11:19.690 [http-nio-8085-exec-3] DEBUG c.a.q.d.U.selectAllByName -<==      Total: 1
+2022-06-04 21:11:19.812 [http-nio-8085-exec-2] DEBUG c.a.q.d.P.queryProjectList -==>  Preparing: select id,project_name as projectName,project_content as projectContent,creation_date as createDate FROM project_info WHERE 1 = 1 AND created_by = ? ORDER BY creation_date DESC
+2022-06-04 21:11:19.812 [http-nio-8085-exec-2] DEBUG c.a.q.d.P.queryProjectList -==>  Preparing: select id,project_name as projectName,project_content as projectContent,creation_date as createDate FROM project_info WHERE 1 = 1 AND created_by = ? ORDER BY creation_date DESC
+2022-06-04 21:11:19.814 [http-nio-8085-exec-2] DEBUG c.a.q.d.P.queryProjectList -==> Parameters: admin(String)
+2022-06-04 21:11:19.814 [http-nio-8085-exec-2] DEBUG c.a.q.d.P.queryProjectList -==> Parameters: admin(String)
+2022-06-04 21:11:19.819 [http-nio-8085-exec-2] DEBUG c.a.q.d.P.queryProjectList -<==      Total: 2
+2022-06-04 21:11:19.819 [http-nio-8085-exec-2] DEBUG c.a.q.d.P.queryProjectList -<==      Total: 2
+2022-06-04 21:11:24.945 [http-nio-8085-exec-5] DEBUG c.a.q.d.U.queryUserList -==>  Preparing: SELECT username FROM user_info WHERE username like "%"?"%" ORDER BY username
+2022-06-04 21:11:24.945 [http-nio-8085-exec-5] DEBUG c.a.q.d.U.queryUserList -==>  Preparing: SELECT username FROM user_info WHERE username like "%"?"%" ORDER BY username
+2022-06-04 21:11:24.946 [http-nio-8085-exec-5] DEBUG c.a.q.d.U.queryUserList -==> Parameters: (String)
+2022-06-04 21:11:24.946 [http-nio-8085-exec-5] DEBUG c.a.q.d.U.queryUserList -==> Parameters: (String)
+2022-06-04 21:11:24.948 [http-nio-8085-exec-5] DEBUG c.a.q.d.U.queryUserList -<==      Total: 1
+2022-06-04 21:11:24.948 [http-nio-8085-exec-5] DEBUG c.a.q.d.U.queryUserList -<==      Total: 1
+2022-06-04 21:11:24.949 [http-nio-8085-exec-5] DEBUG c.a.q.d.U.queryFuzzyUserList -==>  Preparing: SELECT username, start_time AS startTime, stop_time AS stopTime FROM user_info WHERE username like "%"?"%" ORDER BY username
+2022-06-04 21:11:24.949 [http-nio-8085-exec-5] DEBUG c.a.q.d.U.queryFuzzyUserList -==>  Preparing: SELECT username, start_time AS startTime, stop_time AS stopTime FROM user_info WHERE username like "%"?"%" ORDER BY username
+2022-06-04 21:11:24.950 [http-nio-8085-exec-5] DEBUG c.a.q.d.U.queryFuzzyUserList -==> Parameters: (String)
+2022-06-04 21:11:24.950 [http-nio-8085-exec-5] DEBUG c.a.q.d.U.queryFuzzyUserList -==> Parameters: (String)
+2022-06-04 21:11:24.951 [http-nio-8085-exec-5] DEBUG c.a.q.d.U.queryFuzzyUserList -<==      Total: 1
+2022-06-04 21:11:24.951 [http-nio-8085-exec-5] DEBUG c.a.q.d.U.queryFuzzyUserList -<==      Total: 1
+2022-06-04 21:12:10.504 [http-nio-8085-exec-4] DEBUG c.a.q.d.U.queryUserList -==>  Preparing: SELECT username FROM user_info WHERE username like "%"?"%" ORDER BY username
+2022-06-04 21:12:10.504 [http-nio-8085-exec-4] DEBUG c.a.q.d.U.queryUserList -==>  Preparing: SELECT username FROM user_info WHERE username like "%"?"%" ORDER BY username
+2022-06-04 21:12:10.505 [http-nio-8085-exec-4] DEBUG c.a.q.d.U.queryUserList -==> Parameters: (String)
+2022-06-04 21:12:10.505 [http-nio-8085-exec-4] DEBUG c.a.q.d.U.queryUserList -==> Parameters: (String)
+2022-06-04 21:12:10.506 [http-nio-8085-exec-4] DEBUG c.a.q.d.U.queryUserList -<==      Total: 1
+2022-06-04 21:12:10.506 [http-nio-8085-exec-4] DEBUG c.a.q.d.U.queryUserList -<==      Total: 1
+2022-06-04 21:12:10.507 [http-nio-8085-exec-4] DEBUG c.a.q.d.U.queryFuzzyUserList -==>  Preparing: SELECT username, start_time AS startTime, stop_time AS stopTime FROM user_info WHERE username like "%"?"%" ORDER BY username
+2022-06-04 21:12:10.507 [http-nio-8085-exec-4] DEBUG c.a.q.d.U.queryFuzzyUserList -==>  Preparing: SELECT username, start_time AS startTime, stop_time AS stopTime FROM user_info WHERE username like "%"?"%" ORDER BY username
+2022-06-04 21:12:10.507 [http-nio-8085-exec-4] DEBUG c.a.q.d.U.queryFuzzyUserList -==> Parameters: (String)
+2022-06-04 21:12:10.507 [http-nio-8085-exec-4] DEBUG c.a.q.d.U.queryFuzzyUserList -==> Parameters: (String)
+2022-06-04 21:12:10.508 [http-nio-8085-exec-4] DEBUG c.a.q.d.U.queryFuzzyUserList -<==      Total: 1
+2022-06-04 21:12:10.508 [http-nio-8085-exec-4] DEBUG c.a.q.d.U.queryFuzzyUserList -<==      Total: 1
+2022-06-04 21:24:22.893 [http-nio-8085-exec-5] DEBUG c.a.q.d.U.selectAllByName -==>  Preparing: select id, username, password, status from user_info where username = ? and status = "1"
+2022-06-04 21:24:22.893 [http-nio-8085-exec-5] DEBUG c.a.q.d.U.selectAllByName -==>  Preparing: select id, username, password, status from user_info where username = ? and status = "1"
+2022-06-04 21:24:22.912 [http-nio-8085-exec-5] DEBUG c.a.q.d.U.selectAllByName -==> Parameters: admin(String)
+2022-06-04 21:24:22.912 [http-nio-8085-exec-5] DEBUG c.a.q.d.U.selectAllByName -==> Parameters: admin(String)
+2022-06-04 21:24:22.928 [http-nio-8085-exec-5] DEBUG c.a.q.d.U.selectAllByName -<==      Total: 1
+2022-06-04 21:24:22.928 [http-nio-8085-exec-5] DEBUG c.a.q.d.U.selectAllByName -<==      Total: 1
+2022-06-04 21:24:23.051 [http-nio-8085-exec-3] DEBUG c.a.q.d.P.queryProjectList -==>  Preparing: select id,project_name as projectName,project_content as projectContent,creation_date as createDate FROM project_info WHERE 1 = 1 AND created_by = ? ORDER BY creation_date DESC
+2022-06-04 21:24:23.051 [http-nio-8085-exec-3] DEBUG c.a.q.d.P.queryProjectList -==>  Preparing: select id,project_name as projectName,project_content as projectContent,creation_date as createDate FROM project_info WHERE 1 = 1 AND created_by = ? ORDER BY creation_date DESC
+2022-06-04 21:24:23.052 [http-nio-8085-exec-3] DEBUG c.a.q.d.P.queryProjectList -==> Parameters: admin(String)
+2022-06-04 21:24:23.052 [http-nio-8085-exec-3] DEBUG c.a.q.d.P.queryProjectList -==> Parameters: admin(String)
+2022-06-04 21:24:23.058 [http-nio-8085-exec-3] DEBUG c.a.q.d.P.queryProjectList -<==      Total: 2
+2022-06-04 21:24:23.058 [http-nio-8085-exec-3] DEBUG c.a.q.d.P.queryProjectList -<==      Total: 2
+2022-06-04 21:24:26.568 [http-nio-8085-exec-8] DEBUG c.a.q.d.U.queryUserList -==>  Preparing: SELECT username FROM user_info WHERE username like "%"?"%" ORDER BY username
+2022-06-04 21:24:26.568 [http-nio-8085-exec-8] DEBUG c.a.q.d.U.queryUserList -==>  Preparing: SELECT username FROM user_info WHERE username like "%"?"%" ORDER BY username
+2022-06-04 21:24:26.568 [http-nio-8085-exec-8] DEBUG c.a.q.d.U.queryUserList -==> Parameters: (String)
+2022-06-04 21:24:26.568 [http-nio-8085-exec-8] DEBUG c.a.q.d.U.queryUserList -==> Parameters: (String)
+2022-06-04 21:24:26.570 [http-nio-8085-exec-8] DEBUG c.a.q.d.U.queryUserList -<==      Total: 1
+2022-06-04 21:24:26.570 [http-nio-8085-exec-8] DEBUG c.a.q.d.U.queryUserList -<==      Total: 1
+2022-06-04 21:24:26.571 [http-nio-8085-exec-8] DEBUG c.a.q.d.U.queryFuzzyUserList -==>  Preparing: SELECT username, start_time AS startTime, stop_time AS stopTime FROM user_info WHERE username like "%"?"%" ORDER BY username
+2022-06-04 21:24:26.571 [http-nio-8085-exec-8] DEBUG c.a.q.d.U.queryFuzzyUserList -==>  Preparing: SELECT username, start_time AS startTime, stop_time AS stopTime FROM user_info WHERE username like "%"?"%" ORDER BY username
+2022-06-04 21:24:26.571 [http-nio-8085-exec-8] DEBUG c.a.q.d.U.queryFuzzyUserList -==> Parameters: (String)
+2022-06-04 21:24:26.571 [http-nio-8085-exec-8] DEBUG c.a.q.d.U.queryFuzzyUserList -==> Parameters: (String)
+2022-06-04 21:24:26.572 [http-nio-8085-exec-8] DEBUG c.a.q.d.U.queryFuzzyUserList -<==      Total: 1
+2022-06-04 21:24:26.572 [http-nio-8085-exec-8] DEBUG c.a.q.d.U.queryFuzzyUserList -<==      Total: 1
+2022-06-04 21:24:38.246 [http-nio-8085-exec-5] DEBUG c.a.q.dao.UserEntityMapper.insert -==>  Preparing: insert into user_info (id, username, password, start_time, stop_time, status, created_by, creation_date, last_updated_by, last_update_date) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2022-06-04 21:24:38.246 [http-nio-8085-exec-5] DEBUG c.a.q.dao.UserEntityMapper.insert -==>  Preparing: insert into user_info (id, username, password, start_time, stop_time, status, created_by, creation_date, last_updated_by, last_update_date) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2022-06-04 21:24:38.249 [http-nio-8085-exec-5] DEBUG c.a.q.dao.UserEntityMapper.insert -==> Parameters: 617610da1f2c461faa9354857fa1fc5f(String), Alpha(String), 1234(String), 2022-06-04 21:24:29.0(Timestamp), 2022-07-04 21:24:29.0(Timestamp), 1(String), null, null, null, null
+2022-06-04 21:24:38.249 [http-nio-8085-exec-5] DEBUG c.a.q.dao.UserEntityMapper.insert -==> Parameters: 617610da1f2c461faa9354857fa1fc5f(String), Alpha(String), 1234(String), 2022-06-04 21:24:29.0(Timestamp), 2022-07-04 21:24:29.0(Timestamp), 1(String), null, null, null, null
+2022-06-04 21:24:38.263 [http-nio-8085-exec-5] DEBUG c.a.q.dao.UserEntityMapper.insert -<==    Updates: 1
+2022-06-04 21:24:38.263 [http-nio-8085-exec-5] DEBUG c.a.q.dao.UserEntityMapper.insert -<==    Updates: 1
+2022-06-04 21:24:39.353 [http-nio-8085-exec-3] DEBUG c.a.q.d.U.queryUserList -==>  Preparing: SELECT username FROM user_info WHERE username like "%"?"%" ORDER BY username
+2022-06-04 21:24:39.353 [http-nio-8085-exec-3] DEBUG c.a.q.d.U.queryUserList -==>  Preparing: SELECT username FROM user_info WHERE username like "%"?"%" ORDER BY username
+2022-06-04 21:24:39.354 [http-nio-8085-exec-3] DEBUG c.a.q.d.U.queryUserList -==> Parameters: (String)
+2022-06-04 21:24:39.354 [http-nio-8085-exec-3] DEBUG c.a.q.d.U.queryUserList -==> Parameters: (String)
+2022-06-04 21:24:39.355 [http-nio-8085-exec-3] DEBUG c.a.q.d.U.queryUserList -<==      Total: 2
+2022-06-04 21:24:39.355 [http-nio-8085-exec-3] DEBUG c.a.q.d.U.queryUserList -<==      Total: 2
+2022-06-04 21:24:39.356 [http-nio-8085-exec-3] DEBUG c.a.q.d.U.queryFuzzyUserList -==>  Preparing: SELECT username, start_time AS startTime, stop_time AS stopTime FROM user_info WHERE username like "%"?"%" ORDER BY username
+2022-06-04 21:24:39.356 [http-nio-8085-exec-3] DEBUG c.a.q.d.U.queryFuzzyUserList -==>  Preparing: SELECT username, start_time AS startTime, stop_time AS stopTime FROM user_info WHERE username like "%"?"%" ORDER BY username
+2022-06-04 21:24:39.356 [http-nio-8085-exec-3] DEBUG c.a.q.d.U.queryFuzzyUserList -==> Parameters: (String)
+2022-06-04 21:24:39.356 [http-nio-8085-exec-3] DEBUG c.a.q.d.U.queryFuzzyUserList -==> Parameters: (String)
+2022-06-04 21:24:39.359 [http-nio-8085-exec-3] DEBUG c.a.q.d.U.queryFuzzyUserList -<==      Total: 2
+2022-06-04 21:24:39.359 [http-nio-8085-exec-3] DEBUG c.a.q.d.U.queryFuzzyUserList -<==      Total: 2
+2022-06-04 21:25:08.086 [http-nio-8085-exec-9] DEBUG c.a.q.d.U.selectAllByName -==>  Preparing: select id, username, password, status from user_info where username = ? and status = "1"
+2022-06-04 21:25:08.086 [http-nio-8085-exec-9] DEBUG c.a.q.d.U.selectAllByName -==>  Preparing: select id, username, password, status from user_info where username = ? and status = "1"
+2022-06-04 21:25:08.087 [http-nio-8085-exec-9] DEBUG c.a.q.d.U.selectAllByName -==> Parameters: Alpha(String)
+2022-06-04 21:25:08.087 [http-nio-8085-exec-9] DEBUG c.a.q.d.U.selectAllByName -==> Parameters: Alpha(String)
+2022-06-04 21:25:08.088 [http-nio-8085-exec-9] DEBUG c.a.q.d.U.selectAllByName -<==      Total: 1
+2022-06-04 21:25:08.088 [http-nio-8085-exec-9] DEBUG c.a.q.d.U.selectAllByName -<==      Total: 1
+2022-06-04 21:25:08.157 [http-nio-8085-exec-1] DEBUG c.a.q.d.P.queryProjectList -==>  Preparing: select id,project_name as projectName,project_content as projectContent,creation_date as createDate FROM project_info WHERE 1 = 1 AND created_by = ? ORDER BY creation_date DESC
+2022-06-04 21:25:08.157 [http-nio-8085-exec-1] DEBUG c.a.q.d.P.queryProjectList -==>  Preparing: select id,project_name as projectName,project_content as projectContent,creation_date as createDate FROM project_info WHERE 1 = 1 AND created_by = ? ORDER BY creation_date DESC
+2022-06-04 21:25:08.157 [http-nio-8085-exec-1] DEBUG c.a.q.d.P.queryProjectList -==> Parameters: Alpha(String)
+2022-06-04 21:25:08.157 [http-nio-8085-exec-1] DEBUG c.a.q.d.P.queryProjectList -==> Parameters: Alpha(String)
+2022-06-04 21:25:08.158 [http-nio-8085-exec-1] DEBUG c.a.q.d.P.queryProjectList -<==      Total: 0
+2022-06-04 21:25:08.158 [http-nio-8085-exec-1] DEBUG c.a.q.d.P.queryProjectList -<==      Total: 0
+2022-06-04 21:25:14.376 [http-nio-8085-exec-4] DEBUG c.a.q.d.U.queryUserList -==>  Preparing: SELECT username FROM user_info WHERE username like "%"?"%" ORDER BY username
+2022-06-04 21:25:14.376 [http-nio-8085-exec-4] DEBUG c.a.q.d.U.queryUserList -==>  Preparing: SELECT username FROM user_info WHERE username like "%"?"%" ORDER BY username
+2022-06-04 21:25:14.377 [http-nio-8085-exec-4] DEBUG c.a.q.d.U.queryUserList -==> Parameters: (String)
+2022-06-04 21:25:14.377 [http-nio-8085-exec-4] DEBUG c.a.q.d.U.queryUserList -==> Parameters: (String)
+2022-06-04 21:25:14.378 [http-nio-8085-exec-4] DEBUG c.a.q.d.U.queryUserList -<==      Total: 2
+2022-06-04 21:25:14.378 [http-nio-8085-exec-4] DEBUG c.a.q.d.U.queryUserList -<==      Total: 2
+2022-06-04 21:25:14.378 [http-nio-8085-exec-4] DEBUG c.a.q.d.U.queryFuzzyUserList -==>  Preparing: SELECT username, start_time AS startTime, stop_time AS stopTime FROM user_info WHERE username like "%"?"%" ORDER BY username
+2022-06-04 21:25:14.378 [http-nio-8085-exec-4] DEBUG c.a.q.d.U.queryFuzzyUserList -==>  Preparing: SELECT username, start_time AS startTime, stop_time AS stopTime FROM user_info WHERE username like "%"?"%" ORDER BY username
+2022-06-04 21:25:14.379 [http-nio-8085-exec-4] DEBUG c.a.q.d.U.queryFuzzyUserList -==> Parameters: (String)
+2022-06-04 21:25:14.379 [http-nio-8085-exec-4] DEBUG c.a.q.d.U.queryFuzzyUserList -==> Parameters: (String)
+2022-06-04 21:25:14.380 [http-nio-8085-exec-4] DEBUG c.a.q.d.U.queryFuzzyUserList -<==      Total: 2
+2022-06-04 21:25:14.380 [http-nio-8085-exec-4] DEBUG c.a.q.d.U.queryFuzzyUserList -<==      Total: 2

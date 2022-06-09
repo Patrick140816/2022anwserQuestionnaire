@@ -21,10 +21,11 @@ public class ProjectService {
 
     /**
      * 添加项目
+     *
      * @param projectEntity
      * @return
      */
-    public int addProjectInfo(ProjectEntity projectEntity,String user) {
+    public int addProjectInfo(ProjectEntity projectEntity, String user) {
         String id = UUIDUtil.getOneUUID();
         projectEntity.setId(id);
         //获取用户信息
@@ -41,10 +42,11 @@ public class ProjectService {
 
     /**
      * 修改项目
+     *
      * @param projectEntity
      * @return
      */
-    public int modifyProjectInfo(ProjectEntity projectEntity,String user) {
+    public int modifyProjectInfo(ProjectEntity projectEntity, String user) {
         // 获取当前时间
         Date date = DateUtil.getCreateTime();
         projectEntity.setLastUpdateDate(date);
@@ -56,6 +58,7 @@ public class ProjectService {
 
     /**
      * 删除项目
+     *
      * @param projectEntity
      * @return
      */
@@ -67,17 +70,18 @@ public class ProjectService {
 
     /**
      * 查询项目列表
+     *
      * @param projectEntity
      * @return
      */
     public List<Object> queryProjectList(ProjectEntity projectEntity) {
         List<Object> resultList = new ArrayList<Object>();
-        if("".equals(projectEntity.getProjectName())){
+        if ("".equals(projectEntity.getProjectName())) {
             projectEntity.setProjectName(null);
         }
 
-        List<Map<String,Object>> proResult = projectEntityMapper.queryProjectList(projectEntity);
-        for(Map<String,Object> proObj : proResult) {
+        List<Map<String, Object>> proResult = projectEntityMapper.queryProjectList(projectEntity);
+        for (Map<String, Object> proObj : proResult) {
             resultList.add(proObj);
         }
         return resultList;
@@ -85,10 +89,11 @@ public class ProjectService {
 
     /**
      * 查询全部项目的名字接口
+     *
      * @return
      */
-    public List<Map<String,Object>> queryAllProjectName() {
-        List<Map<String,Object>> result = projectEntityMapper.queryAllProjectName();
+    public List<Map<String, Object>> queryAllProjectName() {
+        List<Map<String, Object>> result = projectEntityMapper.queryAllProjectName();
         return result;
     }
 }

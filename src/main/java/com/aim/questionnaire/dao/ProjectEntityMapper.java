@@ -34,7 +34,6 @@ public interface ProjectEntityMapper {
      */
     int updateByPrimaryKeySelective(ProjectEntity record);
 
-
     /**
      * 根据项目id删除项目
      * @param id
