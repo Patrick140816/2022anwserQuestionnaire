@@ -105,7 +105,10 @@ public class QuestionnaireController {
     @RequestMapping(value = "/modifyQuestionnaireInfo", method = RequestMethod.POST, headers = "Accept=application/json")
     public HttpResponseEntity modifyQuestionnaireInfo(@RequestBody QuestionnaireEntity questionnaireEntity) {
         HttpResponseEntity httpResponseEntity = new HttpResponseEntity();
-
+        int result = questionnaireService.modifyQuestionnaireInfo(questionnaireEntity, "admin");
+        httpResponseEntity.setData(result);
+        httpResponseEntity.setCode(Constans.SUCCESS_CODE);
+        httpResponseEntity.setMessage(Constans.UPDATE_MESSAGE);
         return httpResponseEntity;
     }
 

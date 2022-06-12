@@ -1,5 +1,6 @@
 package com.aim.questionnaire.service;
 
+import com.aim.questionnaire.common.utils.DateUtil;
 import com.aim.questionnaire.common.utils.UUIDUtil;
 import com.aim.questionnaire.dao.QuestionnaireEntityMapper;
 import com.aim.questionnaire.dao.entity.QuestionnaireEntity;
@@ -40,7 +41,13 @@ public class QuestionnaireService {
      * @return
      */
     public int modifyQuestionnaireInfo(QuestionnaireEntity questionnaireEntity, String user) {
-        return 0;
+        // 获取当前时间
+        Date date = DateUtil.getCreateTime();
+        questionnaireEntity.setLastUpdateDate(date);
+        //获取用户信息
+        questionnaireEntity.setLastUpdatedBy(user);
+        int result = questionnaireEntityMapper.updateByPrimaryKeySelective(questionnaireEntity);
+        return result;
     }
 
     /**
