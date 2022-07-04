@@ -227,5 +227,4 @@ function createTimePicker() {
         //     this.element.val(this.startDate.format(this.locale.format) + this.locale.separator + this.endDate.format(this.locale.format));
         // }
     });
-
 }

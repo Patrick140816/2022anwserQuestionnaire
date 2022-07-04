@@ -5,12 +5,12 @@
 var questionName = getCookie('questionName');
 var questionContent = getCookie('questionContent');
 var questionId = getCookie('questionId');
-var endTime = getCookie('endTime').replace(/-/g, '/');
-var startTime = getCookie('creationDate').replace(/-/g, '/');
+var endTime = timeFormat(getCookie('endTime'));
+var startTime = timeFormat(getCookie('creationDate'));
 var dataId = getCookie('dataId');
 
 var ifEditQuestType = getCookie('ifEditQuestType');
-//console.log(ifEditQuestType);
+console.log(ifEditQuestType);
 
 $(function () {
     isLoginFun();
@@ -23,7 +23,7 @@ $(function () {
     queryAllDataType();
     $("#questionStartEndTime").val(startTime + " ~ " + endTime);
 
-    $("#ifRemand").css('display','none');
+    $("#ifRemand").css('display', 'none');
 });
 
 
@@ -45,7 +45,7 @@ function queryAllDataType() {
             }
             if (ifEditQuestType == "false") {
                 $("#belongType").attr("disabled", "disabled");
-                $("#ifRemand").css('display','block');
+                $("#ifRemand").css('display', 'block');
             }
 
         } else if (result.code == "333") {
@@ -112,13 +112,13 @@ function createTimePicker() {
     var nowTime = getFormatDateSecond();
 
     var start1 = startTime;
-    // //console.log(start)
-    //console.log(nowTime);
+    console.log(start1)
+    console.log(nowTime);
 
-    // var date = new Date();
-    // var milliseconds = date.getTime() + 1000 * 60 * 60 * 24 * 30;                                    //n代表天数,加号表示未来n天的此刻时间,减号表示过去n天的此刻时间   n:7
-    // var newDate = new Date(milliseconds);
-    // var dateAfterNow = timeFormat(newDate);
+    var date = new Date();
+    var milliseconds = date.getTime() + 1000 * 60 * 60 * 24 * 30;  //n代表天数,加号表示未来n天的此刻时间,减号表示过去n天的此刻时间   n:7
+    var newDate = new Date(milliseconds);
+    var dateAfterNow = timeFormat(newDate);
 
     $('#questionStartEndTime').daterangepicker({
         "minDate": nowTime,
@@ -127,11 +127,11 @@ function createTimePicker() {
         "timePicker": true,
         "timePicker12Hour": true,
         "linkedCalendars": false,
-        // "autoUpdateInput": false,
+        "autoUpdateInput": false,
         "locale": {
             "resetLabel": "重置",
             "format": 'YYYY/MM/DD HH:mm:ss',
-            "separator": " ~ ",//
+            "separator": " ~ ", //
             "applyLabel": "确定",
             "cancelLabel": "取消",
             "fromLabel": "起始时间",
@@ -155,5 +155,4 @@ function createTimePicker() {
         //     this.element.val(this.startDate.format(this.locale.format) + this.locale.separator + this.endDate.format(this.locale.format));
         // }
     });
-
 }

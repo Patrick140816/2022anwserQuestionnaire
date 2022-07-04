@@ -16,14 +16,15 @@ function getHistoryQuest() {
 
     var url = '/queryQuestionnaireList';
     var data = {
-        "questionName": keyWord
+        "questionName": keyWord,
+        "user": getCookie('userName')
     };
     commonAjaxPost(true, url, data, getHistoryQuestSuccess);
 
 }
 
 function getHistoryQuestSuccess(result) {
-    //console.log(result)
+    console.log(result)
     if (result.code == "666") {
         var questionInfo = result.data;
         $("#historyList").empty();
@@ -40,9 +41,9 @@ function getHistoryQuestSuccess(result) {
                 text += "        <span>" + questionInfo[i].projectName + "</span>";
                 text += "    </td>";
                 text += "    <td align=\"center\" style=\"width:230px;\">";
-                text += "        <span>" + questionInfo[i].endTime.replace(/-/g,'/') + "</span>";
+                text += "        <span>" + timeFormat(questionInfo[i].endTime) + "</span>";
                 text += "    </td>";
-                text += "    <td align=\"center\" style=\"width:82px;\">" + questionInfo[i].count + "</td>";
+                text += "    <td align=\"center\" style=\"width:82px;\">" + questionInfo[i].answerTotal + "</td>";
                 text += "    <td align=\"center\">";
                 text += "        <a id=\"btnSend\" href=\"javascript:void(0)\" onclick=\"previewQuest(" + "'" + questionInfo[i].id + "'" + ")\">查看</a>";
                 text += "    </td>";
@@ -80,7 +81,7 @@ function deleteHistoryQuest(id) {
             "id": id
         };
         commonAjaxPost(true, url, data, function (result) {
-            //console.log(result);
+            console.log(result);
             if (result.code == "666") {
                 layer.msg(result.message, {icon: 1});
                 getHistoryQuest();
@@ -156,7 +157,7 @@ function createDtePicker() {
             "locale": {
                 "resetLabel": "重置",
                 "format": 'YYYY/MM/DD HH:mm:ss',
-                "separator": " ~ ",//
+                "separator": " ~ ", //
                 "applyLabel": "确定",
                 "cancelLabel": "取消",
                 "fromLabel": "起始时间",
@@ -185,4 +186,3 @@ $(document).keydown(function (event) {
         getHistoryQuest();
     }
 });
-

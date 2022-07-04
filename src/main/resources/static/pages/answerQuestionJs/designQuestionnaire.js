@@ -1,8 +1,8 @@
 var tipMsg = "在此题后插入新题";
 var movie_boxForInsert = '<div class="movie_box" style="border: 1px solid rgb(255, 255, 255);"></div>';
 var newContain = '';
-var questionList = [];    //所有题和选项
-var questionTitles = '';   //所有的题目
+var questionList = []; //所有题和选项
+var questionTitles = ''; //所有的题目
 var questionInfo = '';
 var projectId = '';
 var dataId = '';
@@ -30,13 +30,16 @@ $(function () {
         var qId = urlObj.qId;
         var i = urlObj.i;
         var qIdStr = "";
+        console.log(qId)
+        console.log(i)
         if (qId != undefined) {
-            qIdStr = $.base64.decode(qId);
+            // qIdStr = $.base64.decode(qId);
+            qIdStr = qId;
             setCookie('QuestionId', qIdStr);
             //如果为编辑模板就不清空QuestionId
             setCookie('isEdit', '1');
         } else if (i != undefined) {
-            qIdStr = $.base64.decode(i);
+            // qIdStr = $.base64.decode(i);
             setCookie('QuestionId', qIdStr);
         }
         questionId = qIdStr;
@@ -44,7 +47,7 @@ $(function () {
     }
 
     var url = '/queryQuestionnaireAll';
-    //commonAjaxPost(true, url, da, queryQuestionnaireAllSuccess);
+    commonAjaxPost(true, url, da, queryQuestionnaireAllSuccess);
 
 });
 
@@ -53,10 +56,10 @@ function GetRequest() {
     //url例子：www.bicycle.com?id="123456"&Name="bicycle"；
     var url = decodeURI(location.search); //?id="123456"&Name="bicycle";
     var object = {};
-    if (url.indexOf("?") != -1)//url中存在问号，也就说有参数。
+    if (url.indexOf("?") != -1) //url中存在问号，也就说有参数。
     {
-        var str = url.substr(1);  //得到?后面的字符串
-        var strs = str.split("&");  //将得到的参数分隔成数组[id="123456",Name="bicycle"];
+        var str = url.substr(1); //得到?后面的字符串
+        var strs = str.split("&"); //将得到的参数分隔成数组[id="123456",Name="bicycle"];
         for (var i = 0; i < strs.length; i++) {
             object[strs[i].split("=")[0]] = strs[i].split("=")[1]
         }
@@ -117,8 +120,8 @@ function addQuestion(index) {
                 '<h4 class="title_wjht">' +
                 '<i class="nmb">' + Grade + '</i>. <span class="btwenzi">请编辑问题!</span>' +
                 '<span class="tip_wz"><a href=\'javascript:void(0)\'  class=\'bida\'>必答题</a></span>' +
-                '</h4>'
-                + ' <table width="100%" border="0" cellspacing="0" cellpadding="0" class="tswjdc_table">' +
+                '</h4>' +
+                ' <table width="100%" border="0" cellspacing="0" cellpadding="0" class="tswjdc_table">' +
                 '<tbody></tbody>' +
                 '</table>' +
                 '</div>'; //问答 单选 多选
@@ -143,13 +146,13 @@ function addQuestion(index) {
                 $(".yd_box").append(movie_box);
             }
             break;
-        case "4":  //量表
+        case "4": //量表
             var wjdc_list = ' <div class="wjdc_list">' +
                 '<h4 class="title_wjht">' +
                 '<i class="nmb">' + Grade + '</i>.<span class="btwenzi">请编辑问题!</span>' +
                 '<span class="tip_wz"><a href=\'javascript:void(0)\'  class=\'bida\'>必答题</a></span>' +
-                '</h4>'
-                + ' <table width="100%" border="0" cellspacing="0" cellpadding="0" class="tswjdc_table">' +
+                '</h4>' +
+                ' <table width="100%" border="0" cellspacing="0" cellpadding="0" class="tswjdc_table">' +
                 '<tbody></tbody>' +
                 '</table>' +
                 '</div>'; //问答 单选 多选
@@ -290,7 +293,7 @@ $(".first").live("click", function () {
     if (dqgs > 0) {
         console.log(dqgs)
         var czxx = $(this).parent(".kzqy_czbut").parent(".movie_box");
-        var xyghtml = $(".yd_box:first-child").children(".movie_box").eq(0).html();   //第一题的内容
+        var xyghtml = $(".yd_box:first-child").children(".movie_box").eq(0).html(); //第一题的内容
         console.log($(".yd_box").children().html())
         $(".yd_box").children(".movie_box").eq(0).before('<div class="movie_box" style="border: 1px solid rgb(255, 255, 255);">' + text.html() + '</div>')
         // var syghtml = czxx.html();          //当前题的内容
@@ -340,7 +343,7 @@ $(".last").live("click", function () {
     var text = $(this).parent(".kzqy_czbut").parent(".movie_box");
     if (dqgs < leng - 1) {
         var czxx = $(this).parent(".kzqy_czbut").parent(".movie_box");
-        var xyghtml = $(".yd_box").children(".movie_box").eq(leng - 1).html();   //最后一题的内容
+        var xyghtml = $(".yd_box").children(".movie_box").eq(leng - 1).html(); //最后一题的内容
         $(".yd_box").children(".movie_box").eq(leng - 1).after('<div class="movie_box" style="border: 1px solid rgb(255, 255, 255);">' + text.html() + '</div>')
         // var syghtml = czxx.html();          //当前题的内容
         // $(".yd_box").children(".movie_box").eq(leng - 1).html(syghtml);          //交换
@@ -385,7 +388,7 @@ $(".last").live("click", function () {
 $(".copy").live("click", function () {
     var movie_box = '<div class="movie_box" style="border: 1px solid rgb(255, 255, 255);"></div>';
     var czxx = $(this).parent(".kzqy_czbut").parent(".movie_box");
-    var syghtml = czxx.html();          //当前题的内容
+    var syghtml = czxx.html(); //当前题的内容
     movie_box = $(movie_box).append(syghtml);
     $(czxx).after(movie_box);
     $(".movie_box").hover(function () {
@@ -439,8 +442,8 @@ $(".bianji").live("click", function () {
         //判断每一个div，其css中display是否为block
         if ($(this).css("display") == "block") {
             layer.alert('请将未保存的内容进行保存后再进行编辑操作', {
-                skin: 'layui-layer-lan'
-                , closeBtn: 0
+                skin: 'layui-layer-lan',
+                closeBtn: 0
             });
             indexShow = 'fndsk'
         }
@@ -452,11 +455,11 @@ $(".bianji").live("click", function () {
     // $(this).siblings().hide();
     //$(this).parent(".kzqy_czbut").parent(".movie_box").unbind("hover");
     if (indexShow == '') {
-        var dxtm = $(".dxuan").html();                  //单选
-        var duoxtm = $(".duoxuan").html();             //多选
-        var tktm = $(".tktm").html();                 //填空
-        var jztm = $(".jztm").html();                //矩阵
-        var lbtm = $(".lb").html();                //矩阵
+        var dxtm = $(".dxuan").html(); //单选
+        var duoxtm = $(".duoxuan").html(); //多选
+        var tktm = $(".tktm").html(); //填空
+        var jztm = $(".jztm").html(); //矩阵
+        var lbtm = $(".lb").html(); //矩阵
         //接受编辑内容的容器    kzqy_czbut 编辑的div
         var dx_rq = $(this).parent(".kzqy_czbut").parent(".movie_box").find(".dx_box");
         console.log(dx_rq)
@@ -551,7 +554,7 @@ $(".bianji").live("click", function () {
             }
             var bjjs_bj = 0;
             //存选项的数组
-            var questionOption = [];  //单个题的所有选项
+            var questionOption = []; //单个题的所有选项
             // console.log(jcxxxx.children(".wjdc_list").children(".tswjdc_table").children('tbody').find('tr').length);
             var lineTitleNum = jcxxxx.children(".wjdc_list").children(".tswjdc_table").children('tbody').find('tr').length;
             var lineTitle = '';
@@ -587,23 +590,23 @@ $(".bianji").live("click", function () {
                     }
                 }
             }
-            if (texte_bt_val == '请编辑问题!'||texte_bt_val == '') {
+            if (texte_bt_val == '请编辑问题!' || texte_bt_val == '') {
 
-            }else {
+            } else {
                 console.log($(".dx_box").find(".kzjxx_iteam"))
                 var totalLength = $(".dx_box").find(".kzjxx_iteam").length
                 for (var inde = 0; inde < chooseOptions; inde++) {
                     console.log($($(".dx_box").find(".input_wenbk")[inde]))
-                    console.log($($(".dx_box").find(".input_wenbk")[inde]).val() )
+                    console.log($($(".dx_box").find(".input_wenbk")[inde]).val())
                     console.log($(".dx_box").find(".kzjxx_iteam").eq(inde).find(".input_wenbk"))
                     console.log($($(".dx_box").find(".kzjxx_iteam").eq(inde).find(".input_wenbk")))
                     // if ($($(".dx_box").find(".input_wenbk")[inde]).val() == '') {
                     if ($($(".dx_box").find(".kzjxx_iteam").eq(inde).find(".input_wenbk")).val() == '') {
                         // $(".dx_box").find(".input_wenbk")[inde].parentNode.style.display = "none"
                         // $(".dx_box").find(".input_wenbk")[inde].remove()
-                        console.log( $(".dx_box").find(".kzjxx_iteam")[inde])
-                        console.log( $(".dx_box").find(".kzjxx_iteam").length)
-                        for(var removeList = inde;removeList<totalLength;removeList++){
+                        console.log($(".dx_box").find(".kzjxx_iteam")[inde])
+                        console.log($(".dx_box").find(".kzjxx_iteam").length)
+                        for (var removeList = inde; removeList < totalLength; removeList++) {
 
                             $($(".dx_box").find(".kzjxx_iteam")[inde]).remove()
                         }
@@ -778,8 +781,8 @@ $(".swcbj_but").live("click", function () {
 
     var jcxxxx = $(this).parent(".bjqxwc_box").parent(".dx_box"); //编辑题目区
     var questionType = jcxxxx.attr("data-t"); //获取题目类型
-console.log(jcxxxx.find(".btwen_text").val())
-    if(jcxxxx.find(".btwen_text").val()!=""){
+    console.log(jcxxxx.find(".btwen_text").val())
+    if (jcxxxx.find(".btwen_text").val() != "") {
 
         switch (questionType) {
             case "0": //单选
@@ -826,7 +829,7 @@ console.log(jcxxxx.find(".btwen_text").val())
                 jcxxxx.find(".title_itram").children("div.kzjxx_iteam").each(function () {
                     var texte_val_bj = $(this).find(".input_wenbk").val(); //获取填写信息
                     var checkbox = $(this).find("input.fxk").is(':checked'); //是否可填空
-                    if(texte_val_bj==""){
+                    if (texte_val_bj == "") {
                         texte_val_bj = "选项"
                     }
                     x_iteam.push({
@@ -837,10 +840,10 @@ console.log(jcxxxx.find(".btwen_text").val())
                 });
                 var y_iteams = y_iteam.split(",");
                 console.log(y_iteams)
-                if(y_iteams.length==2&&y_iteams[1]==""){
+                if (y_iteams.length == 2 && y_iteams[1] == "") {
                     layer.alert('请将试题填写完整', {
-                        skin: 'layui-layer-lan'
-                        , closeBtn: 0
+                        skin: 'layui-layer-lan',
+                        closeBtn: 0
                     });
                     return;
                 }
@@ -867,11 +870,11 @@ console.log(jcxxxx.find(".btwen_text").val())
             case "4": //量表
                 jcxxxx.parent(".movie_box").children(".wjdc_list").children("table").children("tbody").empty();
                 var title = jcxxxx.find("textarea.input_wenbk.btwen_text").val(); //获取标题
-                var x_iteam = new Array();      //获取 选项文字
+                var x_iteam = new Array(); //获取 选项文字
                 jcxxxx.find(".title_itram").children("div.kzjxx_iteam").each(function () {
-                    var texte_val_bj = $(this).find(".lb_word").val();              //获取选项文字
-                    var texte_val_bjGrade = $(this).find(".lb_grade").val();              //获取选项分数
-                    var checkbox = $(this).find("input.fxk").is(':checked');         //是否可填空
+                    var texte_val_bj = $(this).find(".lb_word").val(); //获取选项文字
+                    var texte_val_bjGrade = $(this).find(".lb_grade").val(); //获取选项分数
+                    var checkbox = $(this).find("input.fxk").is(':checked'); //是否可填空
                     x_iteam.push({
                         name: texte_val_bj,
                         grade: texte_val_bjGrade,
@@ -919,10 +922,10 @@ console.log(jcxxxx.find(".btwen_text").val())
         }
         //清除
         $(this).parent(".bjqxwc_box").parent(".dx_box").empty().hide();
-    }else{
+    } else {
         layer.alert('请填写题目再保存', {
-            skin: 'layui-layer-lan'
-            , closeBtn: 0
+            skin: 'layui-layer-lan',
+            closeBtn: 0
         });
     }
 });
@@ -961,7 +964,7 @@ function editFinish() {
         var da = '';
         var url = '';
         da = {
-            'questionList': questionList,
+            'questionList': JSON.stringify(questionList),
             'questionTitle': questionTitles, //所有的题目
             'questionId': questionId,
             'dataId': dataId,
@@ -978,11 +981,11 @@ function editFinish() {
 function previewQuestion() {
     //判断有没有问卷id 没有就提示先保存
     // console.log(getCookie('previewId'));
-    var idQ = getCookie('previewId');
+    var idQ = questionId;
     if (idQ == undefined) {
         layer.alert('请保存之后再预览', {
-            skin: 'layui-layer-lan'
-            , closeBtn: 0
+            skin: 'layui-layer-lan',
+            closeBtn: 0
         });
     } else {
         deleteCookie('previewId');
@@ -995,22 +998,25 @@ function previewQuestion() {
 function changeInfo() {
     //获取当前的
     var questionName = $('.questionTitle').text(); //获取问卷名称
-    var questionContent = $('#pater_desc').html();//获取问卷说明
+    var questionContent = $('#pater_desc').html(); //获取问卷说明
 
     //在layer中铺数据
     layer.open({
         type: 1 //Page层类型
-        , area: ['500px', '340px']
-        , title: '信息修改'
-        , shade: 0.6 //遮罩透明度
-        , anim: 2 //0-6的动画形式，-1不开启
-        , content: '<div style="padding: 20px 10px 0 10px;" id="cancelChange">' +
-        '<div class="form-group"><label style="margin-bottom: 10px">问卷标题:</label><input class="form-control" id="questionName"></div>' +
-        '<div class="form-group"><label>问卷说明:</label><textarea class="form-control" style="height: 80px;" id="questionContent"></textarea></div>' +
-        '<div class="form-group" style="margin-left: 330px">' +
-        '<button class="layui-btn layui-btn-primary" onclick="cancelChange()">取消</button>' +
-        '<button class="layui-btn layui-btn-normal" onclick="sureChange()">确定</button></div>' +
-        '</div>'
+        ,
+        area: ['500px', '340px'],
+        title: '信息修改',
+        shade: 0.6 //遮罩透明度
+        ,
+        anim: 2 //0-6的动画形式，-1不开启
+        ,
+        content: '<div style="padding: 20px 10px 0 10px;" id="cancelChange">' +
+            '<div class="form-group"><label style="margin-bottom: 10px">问卷标题:</label><input class="form-control" id="questionName"></div>' +
+            '<div class="form-group"><label>问卷说明:</label><textarea class="form-control" style="height: 80px;" id="questionContent"></textarea></div>' +
+            '<div class="form-group" style="margin-left: 330px">' +
+            '<button class="layui-btn layui-btn-primary" onclick="cancelChange()">取消</button>' +
+            '<button class="layui-btn layui-btn-normal" onclick="sureChange()">确定</button></div>' +
+            '</div>'
     });
     $('#questionName').val(questionName);
     $('#questionContent').val(questionContent);
@@ -1029,7 +1035,7 @@ function getQuestion() {
     for (var i = 0; i < questionNum; i++) {
         var jcxxxx = $(".yd_box").children(".movie_box").eq(i); //获取带有题目类型的div
         var questionType = jcxxxx.children(".dx_box").attr("data-t"); //获取题目类型
-        var questionObj = {questionType: "", questionTitle: "", questionOption: [], important: ""};  //单个题和选项
+        var questionObj = {questionType: "", questionTitle: "", questionOption: [], important: ""}; //单个题和选项
         questionObj.questionType = questionType;
         switch (questionType) {
             case "0": //单选
@@ -1045,11 +1051,11 @@ function getQuestion() {
                 //遍历题目项目的文字
                 var bjjs_bj = 0;
                 //存选项的数组
-                var questionOption = [];  //单个题的所有选项
+                var questionOption = []; //单个题的所有选项
                 jcxxxx.children(".wjdc_list").children("li").each(function () {
-                    var questionOptionObj = {lineTitle: "", optionWord: "", optionGrade: ""};  //单个题的单个选项
+                    var questionOptionObj = {lineTitle: "", optionWord: "", optionGrade: ""}; //单个题的单个选项
                     var chooseOption = jcxxxx.children(".wjdc_list").children("li").eq(bjjs_bj + 1).find("span").text(); //题目选项文字
-                    questionOptionObj.optionWord = chooseOption;  //选项文字
+                    questionOptionObj.optionWord = chooseOption; //选项文字
                     questionOption.push(questionOptionObj);
                     bjjs_bj++;
                 });
@@ -1074,36 +1080,36 @@ function getQuestion() {
                 //遍历题目项目的文字
                 var bjjs_bj = 0;
                 //存选项的数组
-                var questionOption = [];  //单个题的所有选项
+                var questionOption = []; //单个题的所有选项
                 if (jcxxxx.children(".wjdc_list").children(".tswjdc_table").children('tbody').find('tr').eq(0).find('td').length > jcxxxx.children(".wjdc_list").children(".tswjdc_table").children('tbody').find('tr').length) {
                     jcxxxx.children(".wjdc_list").children(".tswjdc_table").children('tbody').find('tr').eq(0).find('td').each(function () {
-                        var questionOptionObj = {lineTitle: "", optionWord: "", optionGrade: ""};  //单个题的单个选项
+                        var questionOptionObj = {lineTitle: "", optionWord: "", optionGrade: ""}; //单个题的单个选项
                         var lineTitle = jcxxxx.children(".wjdc_list").children(".tswjdc_table").children('tbody').find('tr').eq(bjjs_bj + 1).find('td').eq(0).html(); //题目选项文字
                         if (lineTitle == null) {
                             lineTitle = '';
                         }
-                        questionOptionObj.lineTitle = lineTitle;  //行标题
+                        questionOptionObj.lineTitle = lineTitle; //行标题
                         var chooseOption = jcxxxx.children(".wjdc_list").children(".tswjdc_table").children('tbody').find('tr').eq(0).find('td').eq(bjjs_bj + 1).html(); //题目选项文字
                         if (chooseOption == null) {
                             chooseOption = '';
                         }
-                        questionOptionObj.optionWord = chooseOption;  //选项文字
+                        questionOptionObj.optionWord = chooseOption; //选项文字
                         questionOption.push(questionOptionObj);
                         bjjs_bj++;
                     });
                 } else {
                     jcxxxx.children(".wjdc_list").children(".tswjdc_table").children('tbody').find('tr').each(function () {
-                        var questionOptionObj = {lineTitle: "", optionWord: "", optionGrade: ""};  //单个题的单个选项
+                        var questionOptionObj = {lineTitle: "", optionWord: "", optionGrade: ""}; //单个题的单个选项
                         var lineTitle = jcxxxx.children(".wjdc_list").children(".tswjdc_table").children('tbody').find('tr').eq(bjjs_bj + 1).find('td').eq(0).html(); //题目选项文字
                         if (lineTitle == null) {
                             lineTitle = '';
                         }
-                        questionOptionObj.lineTitle = lineTitle;  //行标题
+                        questionOptionObj.lineTitle = lineTitle; //行标题
                         var chooseOption = jcxxxx.children(".wjdc_list").children(".tswjdc_table").children('tbody').find('tr').eq(0).find('td').eq(bjjs_bj + 1).html(); //题目选项文字
                         if (chooseOption == null) {
                             chooseOption = '';
                         }
-                        questionOptionObj.optionWord = chooseOption;  //选项文字
+                        questionOptionObj.optionWord = chooseOption; //选项文字
                         questionOption.push(questionOptionObj);
                         bjjs_bj++;
                     });
@@ -1124,11 +1130,11 @@ function getQuestion() {
                 //遍历题目项目的文字
                 var bjjs_bj = 0;
                 //存选项的数组
-                var questionOption = [];  //单个题的所有选项
+                var questionOption = []; //单个题的所有选项
                 jcxxxx.children(".wjdc_list").children(".tswjdc_table").children('tbody').find('tr').eq(0).find('td').each(function () {
-                    var questionOptionObj = {lineTitle: "", optionWord: "", optionGrade: ""};  //单个题的单个选项
+                    var questionOptionObj = {lineTitle: "", optionWord: "", optionGrade: ""}; //单个题的单个选项
                     var chooseOption = jcxxxx.children(".wjdc_list").children(".tswjdc_table").children('tbody').find('tr').eq(0).find('td').eq(bjjs_bj).text(); //题目选项文字
-                    questionOptionObj.optionWord = chooseOption;  //选项文字
+                    questionOptionObj.optionWord = chooseOption; //选项文字
                     questionOption.push(questionOptionObj);
                     bjjs_bj++;
                 });
@@ -1156,7 +1162,7 @@ function sureChange() {
     }
     //铺在界面上
     $('.questionTitle').text(questionName); //获取问卷名称
-    $('#pater_desc').html(questionContent);//获取问卷说明
+    $('#pater_desc').html(questionContent); //获取问卷说明
     layer.closeAll();
 }
 
@@ -1194,26 +1200,29 @@ function queryQuestionnaireAllSuccess(res) {
     console.log(res);
     deleteCookie('questionList');
     if (res.code == '666') {
-        // alert("查询问卷详情成功");
+        //alert("查询问卷详情成功");
         //查询的是历史问卷
         questionIdForChange = res.data.id;
         dataId = res.data.dataId;
         console.log(res.data.questionName);
         $('.questionTitle').text(res.data.questionName); //问卷名称
-        $('#pater_desc').html(res.data.questionContent);//问卷说明
+        $('#pater_desc').html(res.data.questionContent); //问卷说明
         if (res.data.questionStop == '4' || res.data.questionStop == '0') {
             if (getCookie('isEdit') != '1') {
                 deleteCookie('QuestionId');
                 judgeQuestionId();
                 $('.questionTitle').text(questionInfo.questionName); //问卷名称
-                $('#pater_desc').html(questionInfo.questionContent);//问卷说明
+                $('#pater_desc').html(questionInfo.questionContent); //问卷说明
             }
         } else if (res.data.questionStop == '5') {
             endTime = res.data.endTime;
             startTime = res.data.startTime;
             questionStop = res.data.questionStop;
         }
-        var question = res.data.question;
+        questionList = JSON.parse(res.data.question);
+        console.log(questionList)
+        // var question = res.data.question;
+        var question = questionList;
         setCookie('questionList', question);
         if (question != null) {
             for (var i = 0; i < question.length; i++) {
@@ -1362,7 +1371,7 @@ function showQuestion(question) {
                 $(".yd_box").append(movie_box);
             }
             break;
-        case "4":  //量表
+        case "4": //量表
             var wjdc_list = ' <div class="wjdc_list">' +
                 '<h4 class="title_wjht">' +
                 '<i class="nmb">' + Grade + '</i>.<span class="btwenzi">' + question.questionTitle + '</span>' +
@@ -1475,7 +1484,6 @@ function showQuestion(question) {
         $(this).children(".kzqy_czbut").remove();
         //$(this).children(".dx_box").hide();
     });
-
 };
 
 function judgeQuestionId() {

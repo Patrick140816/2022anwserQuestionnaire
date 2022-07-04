@@ -17,7 +17,8 @@ public class ProjectService {
 
     @Autowired
     private ProjectEntityMapper projectEntityMapper;
-
+    @Autowired
+    private QuestionnaireService questionnaireService;
 
     /**
      * 添加项目
@@ -76,12 +77,15 @@ public class ProjectService {
      */
     public List<Object> queryProjectList(ProjectEntity projectEntity) {
         List<Object> resultList = new ArrayList<Object>();
-        if ("".equals(projectEntity.getProjectName())) {
+        if("".equals(projectEntity.getProjectName())){
             projectEntity.setProjectName(null);
         }
 
-        List<Map<String, Object>> proResult = projectEntityMapper.queryProjectList(projectEntity);
-        for (Map<String, Object> proObj : proResult) {
+        List<Map<String,Object>> proResult = projectEntityMapper.queryProjectList(projectEntity);
+        for(Map<String,Object> proObj : proResult) {
+            String id = proObj.get("id").toString();
+            List<Object> questionList = questionnaireService.queryQuestionListByProjectId(id);
+            proObj.put("questionList",questionList);
             resultList.add(proObj);
         }
         return resultList;
@@ -92,8 +96,22 @@ public class ProjectService {
      *
      * @return
      */
-    public List<Map<String, Object>> queryAllProjectName() {
-        List<Map<String, Object>> result = projectEntityMapper.queryAllProjectName();
-        return result;
+    public List<Object> queryAllProjectName() {
+        List<Object> resultList = new ArrayList<Object>();
+        List<Map<String,Object>> proResult = projectEntityMapper.queryAllProjectName();
+        for(Map<String,Object> proObj : proResult) {
+            resultList.add(proObj);
+        }
+        return resultList;
+    }
+
+    /**
+     * 根据项目id查询项目名称
+     * @param id
+     * @return
+     */
+    public String queryProjectNameById(String id) {
+        String projectName = projectEntityMapper.queryProjectNameById(id);
+        return projectName;
     }
 }

@@ -21,12 +21,9 @@ import java.util.Map;
  */
 @RestController
 public class ProjectController {
-
     private final Logger logger = LoggerFactory.getLogger(ProjectController.class);
-
     @Autowired
     private ProjectService projectService;
-
 
     /**
      * 查询全部项目的信息
@@ -50,15 +47,21 @@ public class ProjectController {
      * @return
      */
     @RequestMapping(value = "/deleteProjectById", method = RequestMethod.POST, headers = "Accept=application/json")
-    public HttpResponseEntity deleteProjectById(ProjectEntity projectEntity) {
+    public HttpResponseEntity deleteProjectById(@RequestBody ProjectEntity projectEntity) {
         HttpResponseEntity httpResponseEntity = new HttpResponseEntity();
-        int result = projectService.deleteProjectById(projectEntity);
-        if (result == -1) {
+        try {
+            int result = projectService.deleteProjectById(projectEntity);
+            if (result == -1) {
+                httpResponseEntity.setCode(Constans.EXIST_CODE);
+                httpResponseEntity.setMessage(Constans.PROJECT_EXIST_MESSAGE);
+            } else {
+                httpResponseEntity.setCode(Constans.SUCCESS_CODE);
+                httpResponseEntity.setMessage(Constans.DELETE_MESSAGE);
+            }
+        } catch (Exception e) {
+            logger.info("deleteProjectById 删除项目>>>>>>>>>>>" + e.getLocalizedMessage());
             httpResponseEntity.setCode(Constans.EXIST_CODE);
-            httpResponseEntity.setMessage(Constans.PROJECT_EXIST_MESSAGE);
-        } else {
-            httpResponseEntity.setCode(Constans.SUCCESS_CODE);
-            httpResponseEntity.setMessage(Constans.DELETE_MESSAGE);
+            httpResponseEntity.setMessage(Constans.EXIST_MESSAGE);
         }
         return httpResponseEntity;
     }
@@ -72,10 +75,20 @@ public class ProjectController {
     @RequestMapping(value = "/addProjectInfo", method = RequestMethod.POST, headers = "Accept=application/json")
     public HttpResponseEntity addProjectInfo(@RequestBody ProjectEntity projectEntity) {
         HttpResponseEntity httpResponseEntity = new HttpResponseEntity();
-        int result = projectService.addProjectInfo(projectEntity, "admin");
-        httpResponseEntity.setData(result);
-        httpResponseEntity.setCode(Constans.SUCCESS_CODE);
-        httpResponseEntity.setMessage(Constans.ADD_MESSAGE);
+        try {
+            int result = projectService.addProjectInfo(projectEntity, projectEntity.getCreatedBy());
+            if (result == 3) {
+                httpResponseEntity.setCode(Constans.EXIST_CODE);
+                httpResponseEntity.setMessage(Constans.EXIST_MESSAGE);
+            } else {
+                httpResponseEntity.setCode(Constans.SUCCESS_CODE);
+                httpResponseEntity.setMessage(Constans.ADD_MESSAGE);
+            }
+        } catch (Exception e) {
+            logger.info("addProjectInfo 创建项目的基本信息>>>>>>>>>>>" + e.getLocalizedMessage());
+            httpResponseEntity.setCode(Constans.EXIST_CODE);
+            httpResponseEntity.setMessage(Constans.EXIST_MESSAGE);
+        }
         return httpResponseEntity;
     }
 
@@ -88,13 +101,22 @@ public class ProjectController {
     @RequestMapping(value = "/modifyProjectInfo", method = RequestMethod.POST, headers = "Accept=application/json")
     public HttpResponseEntity modifyProjectInfo(@RequestBody ProjectEntity projectEntity) {
         HttpResponseEntity httpResponseEntity = new HttpResponseEntity();
-        int result = projectService.modifyProjectInfo(projectEntity, "admin");
-        httpResponseEntity.setData(result);
-        httpResponseEntity.setCode(Constans.SUCCESS_CODE);
-        httpResponseEntity.setMessage(Constans.UPDATE_MESSAGE);
+        try {
+            int result = projectService.modifyProjectInfo(projectEntity, projectEntity.getCreatedBy());
+            if (result == 3) {
+                httpResponseEntity.setCode(Constans.EXIST_CODE);
+                httpResponseEntity.setMessage(Constans.EXIST_MESSAGE);
+            } else {
+                httpResponseEntity.setCode(Constans.SUCCESS_CODE);
+                httpResponseEntity.setMessage(Constans.ADD_MESSAGE);
+            }
+        } catch (Exception e) {
+            logger.info("modifyProjectInfo 修改项目的基本信息>>>>>>>>>>>" + e.getLocalizedMessage());
+            httpResponseEntity.setCode(Constans.EXIST_CODE);
+            httpResponseEntity.setMessage(Constans.EXIST_MESSAGE);
+        }
         return httpResponseEntity;
     }
-
 
     /**
      * 查询全部项目的名字接口
@@ -104,7 +126,7 @@ public class ProjectController {
     @RequestMapping(value = "/queryAllProjectName", method = RequestMethod.POST, headers = "Accept=application/json")
     public HttpResponseEntity queryAllProjectName() {
         HttpResponseEntity httpResponseEntity = new HttpResponseEntity();
-        List<Map<String, Object>> result = projectService.queryAllProjectName();
+        List<Object> result = projectService.queryAllProjectName();
         httpResponseEntity.setCode(Constans.SUCCESS_CODE);
         httpResponseEntity.setData(result);
         return httpResponseEntity;
